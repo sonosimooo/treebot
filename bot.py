@@ -48,10 +48,10 @@ def login_user():
 # Funzione per gestire la registrazione o login
 def handle_registration_or_login():
     if not os.path.exists(CREDENTIALS_FILE):  # Se il file delle credenziali non esiste
-        Write.Print(Fore.YELLOW + "\nNo credentials found. Please register.", Colors.yellow)
+        Write.Print(Fore.YELLOW + "No credentials found. Please register.", Colors.yellow)
         register_user()
     else:
-        Write.Print(Fore.YELLOW + "\nCredentials found. Please login.", Colors.yellow)
+        Write.Print(Fore.YELLOW + "Credentials found. Please login.", Colors.yellow)
         while not login_user():
             pass
 
@@ -71,11 +71,11 @@ def main():
         time.sleep(29)
 
 def ask():
-    handle_registration_or_login()
     print(Fore.GREEN + "Benvenuto nel RP TOOL by Simo!")
     print(Fore.YELLOW + "[ ! ] Premi 'b' per avviare il bot.")
 
     # Gestione registrazione o login
+    handle_registration_or_login()
 
     while True:
         if keyboard.is_pressed('b'): 
