@@ -40,7 +40,7 @@ def login_user():
     
     if username == credentials["username"] and password == credentials["password"]:
         Write.Print(Fore.GREEN + "\nLogin successful!", Colors.green)
-        return True
+        menu()
     else:
         Write.Print(Fore.RED + "\nIncorrect credentials. Please try again.", Colors.red)
         return False
@@ -58,6 +58,34 @@ def handle_registration_or_login():
 # Esegui il git pull prima di avviare il bot
 os.system('git pull')
 
+def menu():
+    title = r'''
+ ____  ____    _____  ____  ____  _    
+/  __\/  __\  /__ __\/  _ \/  _ \/ \   
+|  \/||  \/|    / \  | / \|| / \|| |   
+|    /|  __/    | |  | \_/|| \_/|| |_/\
+\_/\_\\_/       \_/  \____/\____/\____/                                      
+'''
+
+    s = '''
+    1. START BOT
+    2. INFO
+    3. EXIT
+'''
+    os.system("cls")
+    print(Fore.RED + title)
+    print(Fore.WHITE + s)
+    scelta = input("\nEnter Choice:")
+    if scelta == '1':
+        os.system("cls")
+        ask2()
+    if scelta == '2':
+        print("Version: 0.11")
+        os.system("cls")
+        menu()
+    if scelta == '3':
+        os.system("exit")
+
 def main():
     while True:
         keyboard.press('w')
@@ -70,16 +98,20 @@ def main():
         keyboard.release('s')
         time.sleep(29)
 
-def ask():
+def ask2():
     print(Fore.GREEN + "Benvenuto nel RP TOOL by Simo!")
-    print(Fore.YELLOW + "[ ! ] Premi 'b' per avviare il bot.")
-
-    # Gestione registrazione o login
-    handle_registration_or_login()
-
+    print(Fore.YELLOW + "[ ! ] Premi 'b' per avviare il bot, premi 'm' per tornare indietro")
     while True:
         if keyboard.is_pressed('b'): 
             main()
             break
+        if keyboard.is_pressed('m'): 
+            menu()
+            break
+
+def ask():
+
+    # Gestione registrazione o login
+    handle_registration_or_login()
 
 ask()
