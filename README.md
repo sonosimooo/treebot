@@ -2,7 +2,7 @@
 
 [ ⚠️ ]  Only for Minecraft Java 1.20.1
 
-[ ❗ ] Version 0.1
+[ ❗ ] Version 0.11
 
 [ 🔧 ] Requirements: Python 3.13.1
 
